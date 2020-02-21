@@ -19,6 +19,8 @@
 		142ED6C723FFCC1F008056A7 /* Code+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142ED6C623FFCC1F008056A7 /* Code+Extensions.swift */; };
 		142ED6CD23FFD8B4008056A7 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142ED6CC23FFD8B4008056A7 /* View+Extensions.swift */; };
 		142ED6CF23FFE4AF008056A7 /* travel_locations_map_screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 142ED6CE23FFE4AF008056A7 /* travel_locations_map_screen.png */; };
+		142ED6D224000320008056A7 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142ED6D124000320008056A7 /* DataController.swift */; };
+		142ED6D424001254008056A7 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142ED6D324001254008056A7 /* AppConstants.swift */; };
 		72AABEF04C46E76A41CD69A7 /* Pods_Virtual_Tourist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0F995702FD8FE45D89F62FC /* Pods_Virtual_Tourist.framework */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +40,8 @@
 		142ED6CC23FFD8B4008056A7 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
 		142ED6CE23FFE4AF008056A7 /* travel_locations_map_screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = travel_locations_map_screen.png; sourceTree = "<group>"; };
 		142ED6D023FFE5A0008056A7 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		142ED6D124000320008056A7 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		142ED6D324001254008056A7 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		5219F7D53E5F395CCCF52822 /* Pods-Virtual Tourist.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Virtual Tourist.release.xcconfig"; path = "Target Support Files/Pods-Virtual Tourist/Pods-Virtual Tourist.release.xcconfig"; sourceTree = "<group>"; };
 		A0F995702FD8FE45D89F62FC /* Pods_Virtual_Tourist.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Virtual_Tourist.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4FE01FDB46D4EA6F6872316 /* Pods-Virtual Tourist.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Virtual Tourist.debug.xcconfig"; path = "Target Support Files/Pods-Virtual Tourist/Pods-Virtual Tourist.debug.xcconfig"; sourceTree = "<group>"; };
@@ -103,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				142ED6AE23FF1481008056A7 /* Virtual_Tourist.xcdatamodeld */,
+				142ED6D124000320008056A7 /* DataController.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -123,6 +128,7 @@
 				142ED6C423FFCB9F008056A7 /* AlertType.swift */,
 				142ED6C623FFCC1F008056A7 /* Code+Extensions.swift */,
 				142ED6CC23FFD8B4008056A7 /* View+Extensions.swift */,
+				142ED6D324001254008056A7 /* AppConstants.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -295,10 +301,12 @@
 				142ED6CD23FFD8B4008056A7 /* View+Extensions.swift in Sources */,
 				142ED6C323FFCB79008056A7 /* BaseViewController.swift in Sources */,
 				142ED6B023FF1481008056A7 /* Virtual_Tourist.xcdatamodeld in Sources */,
+				142ED6D224000320008056A7 /* DataController.swift in Sources */,
 				142ED6C523FFCB9F008056A7 /* AlertType.swift in Sources */,
 				142ED6AA23FF1481008056A7 /* TravelLocationsMapViewController.swift in Sources */,
 				142ED6A623FF1481008056A7 /* AppDelegate.swift in Sources */,
 				142ED6A823FF1481008056A7 /* SceneDelegate.swift in Sources */,
+				142ED6D424001254008056A7 /* AppConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

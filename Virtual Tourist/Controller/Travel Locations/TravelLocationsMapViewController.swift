@@ -8,15 +8,44 @@
 
 import UIKit
 import MapKit
+import CoreData
 
 class TravelLocationsMapViewController: BaseViewController {
 
     @IBOutlet weak var mapView: MKMapView!
     
+    var dataController: DataController!
+    var pins = [Pin]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupMap()
+        
+        fetchPins()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        let mapViewCenterCoord = mapView.centerCoordinate
+        UserDefaults.standard.set(mapViewCenterCoord.latitude, forKey: AppConstants.LATITUDE_KEY)
+        UserDefaults.standard.set(mapViewCenterCoord.longitude, forKey: AppConstants.LONGITUDE_KEY)
+    }
+    
+    fileprivate func fetchPins() {
+        let fetchRequest: NSFetchRequest<Pin> = Pin.fetchRequest()
+        do {
+            pins = try dataController.viewContext.fetch(fetchRequest)
+            addPinsToMap()
+        } catch {
+            print("Error fetching saved pins: \(error.localizedDescription)")
+        }
+    }
+    
+    fileprivate func addPinsToMap() {
+        for pin in pins {
+            addPinToMap(coordinate: CLLocationCoordinate2D(latitude: pin.latitude, longitude: pin.longitude))
+        }
     }
 
     fileprivate func setupMap() {
@@ -25,15 +54,38 @@ class TravelLocationsMapViewController: BaseViewController {
         let mapTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.handleMapTapped(_:)))
         mapTapGestureRecognizer.delegate = self
         mapView.addGestureRecognizer(mapTapGestureRecognizer)
+        
+        setMapCenterFromPreviousUsage()
+        
+    }
+    
+    fileprivate func setMapCenterFromPreviousUsage() {
+        if let lat = UserDefaults.standard.value(forKey: AppConstants.LATITUDE_KEY), let long = UserDefaults.standard.value(forKey: AppConstants.LONGITUDE_KEY) {
+            let centerCoordinate = CLLocationCoordinate2D(latitude: lat as! CLLocationDegrees, longitude: long as! CLLocationDegrees)
+            let span = MKCoordinateSpan(latitudeDelta: 10.0, longitudeDelta: 10.0)
+            let region = MKCoordinateRegion(center: centerCoordinate, span: span)
+            mapView.setRegion(region, animated: true)
+        }
     }
     
     @objc func handleMapTapped(_ gestureReconizer: UILongPressGestureRecognizer){
         let location = gestureReconizer.location(in: mapView)
-        let coordinate = mapView.convert(location,toCoordinateFrom: mapView)
-
+        let coordinate = mapView.convert(location, toCoordinateFrom: mapView)
+        addPinToMap(coordinate: coordinate)
+        savePin(lat: coordinate.latitude, long: coordinate.longitude)
+    }
+    
+    fileprivate func addPinToMap(coordinate: CLLocationCoordinate2D) {
         let annotation = MKPointAnnotation()
         annotation.coordinate = coordinate
         mapView.addAnnotation(annotation)
+    }
+    
+    fileprivate func savePin(lat: Double, long: Double) {
+        let pin = Pin(context: dataController.viewContext)
+        pin.latitude = lat
+        pin.longitude = long
+        try? dataController.viewContext.save()
     }
 
 }
@@ -51,7 +103,7 @@ extension TravelLocationsMapViewController: UIGestureRecognizerDelegate {
 extension TravelLocationsMapViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        showAlert(with: "\(view.annotation?.coordinate)", alertType: .success) { }
+        //showAlert(with: "\(view.annotation?.coordinate)", alertType: .success) { }
     }
     
 }

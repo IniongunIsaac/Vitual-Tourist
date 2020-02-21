@@ -25,4 +25,4 @@ The application was built using:
 * macOS Catalina 10.15.1
 
 ### Screenshots
-
+![Travel Locations Map Screen](https://github.com/IniongunIsaac/Vitual-Tourist/blob/master/Virtual%20Tourist/Screenshots/travel_locations_map_screen.png)

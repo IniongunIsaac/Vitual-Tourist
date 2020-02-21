@@ -18,6 +18,7 @@
 		142ED6C523FFCB9F008056A7 /* AlertType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142ED6C423FFCB9F008056A7 /* AlertType.swift */; };
 		142ED6C723FFCC1F008056A7 /* Code+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142ED6C623FFCC1F008056A7 /* Code+Extensions.swift */; };
 		142ED6CD23FFD8B4008056A7 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142ED6CC23FFD8B4008056A7 /* View+Extensions.swift */; };
+		142ED6CF23FFE4AF008056A7 /* travel_locations_map_screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 142ED6CE23FFE4AF008056A7 /* travel_locations_map_screen.png */; };
 		72AABEF04C46E76A41CD69A7 /* Pods_Virtual_Tourist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0F995702FD8FE45D89F62FC /* Pods_Virtual_Tourist.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +36,8 @@
 		142ED6C423FFCB9F008056A7 /* AlertType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertType.swift; sourceTree = "<group>"; };
 		142ED6C623FFCC1F008056A7 /* Code+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Code+Extensions.swift"; sourceTree = "<group>"; };
 		142ED6CC23FFD8B4008056A7 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
+		142ED6CE23FFE4AF008056A7 /* travel_locations_map_screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = travel_locations_map_screen.png; sourceTree = "<group>"; };
+		142ED6D023FFE5A0008056A7 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		5219F7D53E5F395CCCF52822 /* Pods-Virtual Tourist.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Virtual Tourist.release.xcconfig"; path = "Target Support Files/Pods-Virtual Tourist/Pods-Virtual Tourist.release.xcconfig"; sourceTree = "<group>"; };
 		A0F995702FD8FE45D89F62FC /* Pods_Virtual_Tourist.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Virtual_Tourist.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4FE01FDB46D4EA6F6872316 /* Pods-Virtual Tourist.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Virtual Tourist.debug.xcconfig"; path = "Target Support Files/Pods-Virtual Tourist/Pods-Virtual Tourist.debug.xcconfig"; sourceTree = "<group>"; };
@@ -55,6 +58,7 @@
 		142ED69923FF1481008056A7 = {
 			isa = PBXGroup;
 			children = (
+				142ED6D023FFE5A0008056A7 /* README.md */,
 				142ED6A423FF1481008056A7 /* Virtual Tourist */,
 				142ED6A323FF1481008056A7 /* Products */,
 				713A81BD03B67C2750686F1B /* Pods */,
@@ -126,6 +130,7 @@
 		142ED6C023FFCAEA008056A7 /* Screenshots */ = {
 			isa = PBXGroup;
 			children = (
+				142ED6CE23FFE4AF008056A7 /* travel_locations_map_screen.png */,
 			);
 			path = Screenshots;
 			sourceTree = "<group>";
@@ -233,6 +238,7 @@
 				142ED6B523FF1485008056A7 /* LaunchScreen.storyboard in Resources */,
 				142ED6B223FF1485008056A7 /* Assets.xcassets in Resources */,
 				142ED6AD23FF1481008056A7 /* Main.storyboard in Resources */,
+				142ED6CF23FFE4AF008056A7 /* travel_locations_map_screen.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -25,3 +25,4 @@ The application was built using:
 * macOS Catalina 10.15.1
 
 ### Screenshots
+

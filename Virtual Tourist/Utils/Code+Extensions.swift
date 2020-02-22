@@ -9,6 +9,25 @@
 import Foundation
 import UIKit
 
+func runOnUIThread(codeToExecute: @escaping () -> Void) {
+    DispatchQueue.main.async {
+        codeToExecute()
+    }
+}
+
+func runAfter(_ seconds: Double = 0.5, block: @escaping () -> Void) {
+    DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+        block()
+    }
+}
+
+extension Decodable {
+    
+    static func mapFrom(data: Data) throws -> Self? {
+        return try JSONDecoder().decode(Self.self, from: data)
+    }
+}
+
 extension UIColor {
     
     convenience init(hexString: String) {

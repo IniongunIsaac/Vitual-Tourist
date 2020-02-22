@@ -25,6 +25,13 @@ class TravelLocationsMapViewController: BaseViewController {
         fetchPins()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        mapView.selectedAnnotations.forEach { annotation in
+            mapView.deselectAnnotation(annotation, animated: true)
+        }
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         let mapViewCenterCoord = mapView.centerCoordinate
@@ -85,7 +92,12 @@ class TravelLocationsMapViewController: BaseViewController {
         let pin = Pin(context: dataController.viewContext)
         pin.latitude = lat
         pin.longitude = long
+        pins.append(pin)
         try? dataController.viewContext.save()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
     }
 
 }
@@ -103,7 +115,12 @@ extension TravelLocationsMapViewController: UIGestureRecognizerDelegate {
 extension TravelLocationsMapViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        //showAlert(with: "\(view.annotation?.coordinate)", alertType: .success) { }
+        runAfter {
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "photoAblumViewController") as! PhotoAlbumViewController
+            vc.pin = self.pins.first { $0.latitude == view.annotation?.coordinate.latitude && $0.longitude == view.annotation?.coordinate.longitude }
+            vc.dataController = self.dataController
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
 }

@@ -12,6 +12,7 @@ An iPhone app that downloads and stores images from Flickr. The app allows users
 
 * Clone this repository.
 * Cd into the root directory.
+* Run `pod install` (you may need to install Cocoapods if you do not already have it installed. See `https://cocoapods.org/` for installation guide.)
 * Open `xcworkspace` project using Xcode.
 * Build and run the project on the XCode Simulator or any physically connected iOS device.
 
@@ -26,3 +27,4 @@ The application was built using:
 
 ### Screenshots
 ![Travel Locations Map Screen](https://github.com/IniongunIsaac/Vitual-Tourist/blob/master/Virtual%20Tourist/Screenshots/travel_locations_map_screen.png)
+![Photo Album Screen](https://github.com/IniongunIsaac/Vitual-Tourist/blob/master/Virtual%20Tourist/Screenshots/photo_album_screen.png)

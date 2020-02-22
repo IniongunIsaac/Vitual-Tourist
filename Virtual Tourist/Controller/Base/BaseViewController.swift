@@ -22,7 +22,7 @@ class BaseViewController: UIViewController {
         ProgressHUD.dismiss()
     }
     
-    func showAlert(with message: String, alertType: AlertType, dismissAction: @escaping () -> Void) {
+    func showAlert(with message: String, alertType: AlertType, dismissAction: (() -> Void)? = nil) {
         
         let alertImage: UIImage? = alertType == .success ? UIImage(named: "success") : UIImage(named: "error")
 
@@ -30,7 +30,7 @@ class BaseViewController: UIViewController {
             .image(alertImage, imageTopMargin: .belowRoundCorner)
             .action(.cancel("Dismiss"))
             .finally({ action, index, textfield  in
-                dismissAction()
+                dismissAction?()
             })
             .show(on: self)
     }

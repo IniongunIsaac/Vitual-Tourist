@@ -45,7 +45,7 @@ class TravelLocationsMapViewController: BaseViewController {
             pins = try dataController.viewContext.fetch(fetchRequest)
             addPinsToMap()
         } catch {
-            print("Error fetching saved pins: \(error.localizedDescription)")
+            debugPrint("Error fetching saved pins: \(error.localizedDescription)")
         }
     }
     
@@ -75,11 +75,13 @@ class TravelLocationsMapViewController: BaseViewController {
         }
     }
     
-    @objc func handleMapTapped(_ gestureReconizer: UILongPressGestureRecognizer){
+    @objc func handleMapTapped(_ gestureReconizer: UILongPressGestureRecognizer) {
+        
         let location = gestureReconizer.location(in: mapView)
         let coordinate = mapView.convert(location, toCoordinateFrom: mapView)
         addPinToMap(coordinate: coordinate)
         savePin(lat: coordinate.latitude, long: coordinate.longitude)
+        
     }
     
     fileprivate func addPinToMap(coordinate: CLLocationCoordinate2D) {

@@ -82,7 +82,7 @@ class PhotoAlbumViewController: BaseViewController {
     
     fileprivate func fetchImages(page: Int = 1) {
         showLoading(loadingMessage: "Fetching Pin images, please wait...")
-        NetworkApiClient.fetchImages(latitude: pin.latitude, longitude: pin.longitude, completionHandler: photoResponseCompletionHandler(photoResponse:error:))
+        NetworkApiClient.fetchImages(latitude: pin.latitude, longitude: pin.longitude, page: page, completionHandler: photoResponseCompletionHandler(photoResponse:error:))
     }
     
     fileprivate func photoResponseCompletionHandler(photoResponse: PhotosResponse?, error: Error?) {
@@ -135,7 +135,7 @@ class PhotoAlbumViewController: BaseViewController {
         }
         
         if let pages = photoResponse?.photos.pages, pages > 0 {
-            fetchImages(page: Int.random(in: 1...pages))
+            fetchImages(page: Int.random(in: 1...10))
         } else {
             fetchImages()
         }

@@ -22,7 +22,7 @@ class NetworkApiClient {
         
         var stringValue: String {
             switch self {
-            case .fetchImages(let latitude, let longitude, let page): return Endpoints.baseUrl + "?method=flickr.photos.search&api_key=\(Auth.apiKey)&format=json&nojsoncallback=1&safe_search=1&per_page=100&page=\(page)&lat=\(latitude)&lon=\(longitude)&extras=url_m"
+            case .fetchImages(let latitude, let longitude, let page): return Endpoints.baseUrl + "?method=flickr.photos.search&api_key=\(Auth.apiKey)&format=json&nojsoncallback=1&safe_search=1&per_page=30&page=\(page)&lat=\(latitude)&lon=\(longitude)&extras=url_m"
             }
         }
         
